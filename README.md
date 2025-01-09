@@ -22,6 +22,10 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 pod 'OSGeolocationLib', '~> 1.0.0'  # Use the latest 1.0.x version
 ```
 
+## Quick Start
+
+This library is currently used by the Geolocation Plugin for OutSystems' [Cordova](https://github.com/ionic-team/cordova-outsystems-geolocation) and [Capacitor](https://github.com/ionic-team/outsystems-geolocation) Plugins. Please check the library usage there for real use-case scenarios.
+
 ## Features
 
 All the library's features are split in 4 different protocols. Each are detailed in the following subsections:
@@ -166,10 +170,6 @@ func stopMonitoringLocation()
 ```
 
 The method should be called whenever you no longer need to received location-related events.
-
-## Quick Start
-
-This library is currently used by the Geolocation Plugin for OutSystems' [Cordova](https://github.com/ionic-team/cordova-outsystems-geolocation) and [Capacitor](https://github.com/ionic-team/outsystems-geolocation) Plugins. Please check the library usage there for real use-case scenarios.
 
 ## Error Handling
 
