@@ -19,7 +19,7 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 `OSGeolocationLib` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
 
 ```ruby
-pod 'OSGeolocationLib', '~> 1.0.0'  # Use the latest 1.0.x version
+pod 'OSGeolocationLib', '~> 0.0.1'  # Use the latest 0.0.x version
 ```
 
 ## Quick Start

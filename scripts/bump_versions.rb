@@ -69,4 +69,10 @@ updated_content = file_content.gsub(/MARKETING_VERSION = [^;]+;/, "MARKETING_VER
 # Write the updated content back to the project file
 File.open(project_file, "w") { |file| file.puts updated_content }
 
+readme_path = "./README.md"
+readme_content = File.read(readme_path)
+new_readme_content = readme_content.gsub(/(pod 'OSGeolocationLib', '~> )\d+\.\d+\.\d+/, "\\1#{new_version_number}\\2")
+                                   .gsub(/(# Use the latest )\d+\.\d+/, "\\1#{[major, minor].join('.')}\\2")
+File.write(readme_path, new_readme_content)
+
 puts "Version updated to #{new_version_number} (Build Number ##{new_build_number})"
