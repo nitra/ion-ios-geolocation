@@ -169,7 +169,7 @@ The method should be called whenever you no longer need to received location-rel
 
 ## Quick Start
 
-This library is currently used by the Geolocation Plugin for OutSystems' [Cordova](https://google.com) and [Capacitor](https://google.com) Plugins. Please check the library usage there for real use-case scenarios.
+This library is currently used by the Geolocation Plugin for OutSystems' [Cordova](https://github.com/ionic-team/cordova-outsystems-geolocation) and [Capacitor](https://github.com/ionic-team/outsystems-geolocation) Plugins. Please check the library usage there for real use-case scenarios.
 
 ## Error Handling
 
