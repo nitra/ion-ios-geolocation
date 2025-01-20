@@ -1,6 +1,6 @@
-import OSGeolocationLib
+import IONGeolocationLib
 
-class MockServicesChecker: OSGLOCServicesChecker {
+class MockServicesChecker: IONGLOCServicesChecker {
     private var didEnableLocationServices = false
 
     func areLocationServicesEnabled() -> Bool {

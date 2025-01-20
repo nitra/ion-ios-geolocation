@@ -1,11 +1,11 @@
-import OSGeolocationLib
+import IONGeolocationLib
 import XCTest
 
 import Combine
 import CoreLocation
 
-final class OSGLOCManagerWrapperTests: XCTestCase {
-    private var sut: OSGLOCManagerWrapper!
+final class IONGLOCManagerWrapperTests: XCTestCase {
+    private var sut: IONGLOCManagerWrapper!
 
     private var locationManager: MockCLLocationManager!
     private var servicesChecker: MockServicesChecker!
@@ -53,7 +53,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
 
     func test_locationManagerAuthorisationChangesToWhenInUse_authorisationStatusUpdatesToWhenInUse() {
         // Given
-        let expectedStatus = OSGLOCAuthorisation.authorisedWhenInUse
+        let expectedStatus = IONGLOCAuthorisation.authorisedWhenInUse
         let expectation = expectation(description: "Authorisation status updated to 'authorisedWhenInUse'.")
 
         validateAuthorisationStatusPublisher(expectation, expectedStatus)
@@ -67,7 +67,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
 
     func test_locationManagerAuthorisationChangesToAlways_authorisationStatusUpdatesToAlways() {
         // Given
-        let expectedStatus = OSGLOCAuthorisation.authorisedAlways
+        let expectedStatus = IONGLOCAuthorisation.authorisedAlways
         let expectation = expectation(description: "Authorisation status updated to 'authorisedAlways'.")
 
         validateAuthorisationStatusPublisher(expectation, expectedStatus)
@@ -83,7 +83,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
         // Given
         locationManager.changeAuthorisation(to: .authorizedWhenInUse)
 
-        let expectedStatus = OSGLOCAuthorisation.authorisedAlways
+        let expectedStatus = IONGLOCAuthorisation.authorisedAlways
         let expectationAlways = expectation(description: "Authorisation status updated to 'authorisedAlways'.")
         validateAuthorisationStatusPublisher(expectationAlways, expectedStatus)
 
@@ -145,7 +145,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
         XCTAssertEqual(locationManager.distanceFilter, CLLocationManager.defaultDistanceFilter)
 
         // When
-        let configuration = OSGLOCConfigurationModel(enableHighAccuracy: true)
+        let configuration = IONGLOCConfigurationModel(enableHighAccuracy: true)
         sut.updateConfiguration(configuration)
 
         // Then
@@ -159,7 +159,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
         XCTAssertEqual(locationManager.distanceFilter, CLLocationManager.defaultDistanceFilter)
 
         // When
-        let configuration = OSGLOCConfigurationModel(enableHighAccuracy: false)
+        let configuration = IONGLOCConfigurationModel(enableHighAccuracy: false)
         sut.updateConfiguration(configuration)
 
         // Then
@@ -173,7 +173,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
         XCTAssertEqual(locationManager.distanceFilter, CLLocationManager.defaultDistanceFilter)
 
         // When
-        let configuration = OSGLOCConfigurationModel(enableHighAccuracy: true, minimumUpdateDistanceInMeters: 10)
+        let configuration = IONGLOCConfigurationModel(enableHighAccuracy: true, minimumUpdateDistanceInMeters: 10)
         sut.updateConfiguration(configuration)
 
         // Then
@@ -214,7 +214,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
     func test_locationIsUpdated_locationManagerTriggersNewPosition() {
         // Given
         let expectedLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
-        let expectedPosition = OSGLOCPositionModel.create(from: expectedLocation)
+        let expectedPosition = IONGLOCPositionModel.create(from: expectedLocation)
         let expectation = expectation(description: "Location updated.")
 
         validateCurrentLocationPublisher(expectation, expectedPosition)
@@ -230,7 +230,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
         // Given
         let firstLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
         let expectedLocation = CLLocation(latitude: 48.8859, longitude: -111.3083)
-        let expectedPosition = OSGLOCPositionModel.create(from: expectedLocation)
+        let expectedPosition = IONGLOCPositionModel.create(from: expectedLocation)
         let expectation = expectation(description: "Location updated.")
 
         validateCurrentLocationPublisher(expectation, expectedPosition)
@@ -248,7 +248,7 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
         locationManager.updateLocation(to: [firstLocation])
 
         let expectedLocation = CLLocation(latitude: 48.8859, longitude: -111.3083)
-        let expectedPosition = OSGLOCPositionModel.create(from: expectedLocation)
+        let expectedPosition = IONGLOCPositionModel.create(from: expectedLocation)
         let expectation = expectation(description: "Location updated.")
         validateCurrentLocationPublisher(expectation, expectedPosition)
 
@@ -288,8 +288,8 @@ final class OSGLOCManagerWrapperTests: XCTestCase {
     }
 }
 
-private extension OSGLOCManagerWrapperTests {
-    func validateCurrentLocationPublisher(_ expectation: XCTestExpectation, _ expectedPosition: OSGLOCPositionModel? = nil) {
+private extension IONGLOCManagerWrapperTests {
+    func validateCurrentLocationPublisher(_ expectation: XCTestExpectation, _ expectedPosition: IONGLOCPositionModel? = nil) {
         sut.currentLocationPublisher
             .sink(receiveCompletion: { completion in
                 if expectedPosition == nil, case .failure = completion {
@@ -302,7 +302,7 @@ private extension OSGLOCManagerWrapperTests {
             .store(in: &cancellables)
     }
 
-    func validateAuthorisationStatusPublisher(_ expectation: XCTestExpectation, _ expectedStatus: OSGLOCAuthorisation) {
+    func validateAuthorisationStatusPublisher(_ expectation: XCTestExpectation, _ expectedStatus: IONGLOCAuthorisation) {
         sut.authorisationStatusPublisher
             .dropFirst()    // ignore the first value as it's the one set on the constructor.
             .sink { status in

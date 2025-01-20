@@ -1,6 +1,6 @@
 import CoreLocation
 
-public struct OSGLOCPositionModel: Equatable {
+public struct IONGLOCPositionModel: Equatable {
     private(set) public var altitude: Double
     private(set) public var course: Double
     private(set) public var horizontalAccuracy: Double
@@ -22,8 +22,8 @@ public struct OSGLOCPositionModel: Equatable {
     }
 }
 
-public extension OSGLOCPositionModel {
-    static func create(from location: CLLocation) -> OSGLOCPositionModel {
+public extension IONGLOCPositionModel {
+    static func create(from location: CLLocation) -> IONGLOCPositionModel {
         .init(
             altitude: location.altitude,
             course: location.course,

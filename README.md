@@ -1,10 +1,10 @@
-# OSGeolocationLib
+# IONGeolocationLib
 
 A Swift library for iOS that provides simple, reliable access to device GPS capabilities. Get location data, monitor position changes, and manage location services with a clean, modern API.
 
-[![License](https://img.shields.io/cocoapods/l/OSGeolocationLib.svg)](https://cocoapods.org/pods/OSGeolocationLib)
-[![Version](https://img.shields.io/cocoapods/v/OSGeolocationLib.svg)](https://cocoapods.org/pods/OSGeolocationLib)
-[![Platform](https://img.shields.io/cocoapods/p/OSGeolocationLib.svg)](https://cocoapods.org/pods/OSGeolocationLib)
+[![License](https://img.shields.io/cocoapods/l/IONGeolocationLib.svg)](https://cocoapods.org/pods/IONGeolocationLib)
+[![Version](https://img.shields.io/cocoapods/v/IONGeolocationLib.svg)](https://cocoapods.org/pods/IONGeolocationLib)
+[![Platform](https://img.shields.io/cocoapods/p/IONGeolocationLib.svg)](https://cocoapods.org/pods/IONGeolocationLib)
 
 ## Requirements
 
@@ -16,10 +16,10 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 
 ### CocoaPods
 
-`OSGeolocationLib` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
+`IONGeolocationLib` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
 
 ```ruby
-pod 'OSGeolocationLib', '~> 0.0.1'  # Use the latest 0.0.x version
+pod 'IONGeolocationLib', '~> 0.0.1'  # Use the latest 0.0.x version
 ```
 
 ## Quick Start
@@ -29,16 +29,16 @@ This library is currently used by the Geolocation Plugin for OutSystems' [Cordov
 ## Features
 
 All the library's features are split in 4 different protocols. Each are detailed in the following subsections:
-- `OSGLOCServicesChecker`
-- `OSGLOCAuthorisationHandler`
-- `OSGLOCSingleLocationHandler`
-- `OSGLOCMonitorLocationHandler`
+- `IONGLOCServicesChecker`
+- `IONGLOCAuthorisationHandler`
+- `IONGLOCSingleLocationHandler`
+- `IONGLOCMonitorLocationHandler`
 
-There's also the typealias `OSGLOCService` that merges all protocols together. Its concrete implementation is achieved by the `OSGLOCManagerWrapper` class.
+There's also the typealias `IONGLOCService` that merges all protocols together. Its concrete implementation is achieved by the `IONGLOCManagerWrapper` class.
 
-### `OSGLOCServicesChecker`
+### `IONGLOCServicesChecker`
 
-The sole goal of `OSGLOCServicesChecker` is to verify if the location services have been enabled on the device.
+The sole goal of `IONGLOCServicesChecker` is to verify if the location services have been enabled on the device.
 
 #### Check if Location Services are Enabled
 
@@ -49,7 +49,7 @@ func areLocationServicesEnabled() -> Bool
 Returns a Boolean value indicating whether location services are enabled on the device.
 
 
-### `OSGLOCAuthorisationHandler`
+### `IONGLOCAuthorisationHandler`
 
 Manages all authorisation status logic related with location. It's composed by the following:
 - a property that indicates the app's at-the-moment authorisation status to use location services;
@@ -61,7 +61,7 @@ Authorisation is vital to receive location-related information. The user needs t
 #### Location Services' Authorisation Status Property
 
 ```swift
-var authorisationStatus: OSGLOCAuthorisation
+var authorisationStatus: IONGLOCAuthorisation
 ```
 
 It returns the at-the-moment authorisation status to use the device's location services. The following are the possible values:
@@ -74,7 +74,7 @@ It returns the at-the-moment authorisation status to use the device's location s
 #### Location Services' Authorisation Status Publisher
 
 ```swift
-var authorisationStatusPublisher: Published<OSGLOCAuthorisation>.Publisher
+var authorisationStatusPublisher: Published<IONGLOCAuthorisation>.Publisher
 ```
 
 It returns a publisher that delivers all authorisation status updates to whoever subscribes to it. The `authorisationStatus` values are the elements that can be emitted by `authorisationStatusPublisher`.
@@ -82,14 +82,14 @@ It returns a publisher that delivers all authorisation status updates to whoever
 #### Request User's Permission to Use Location Services
 
 ```
-func requestAuthorisation(withType authorisationType: OSGLOCAuthorisationRequestType)
+func requestAuthorisation(withType authorisationType: IONGLOCAuthorisationRequestType)
 ```
 
 Requests the user’s permission to use location services. There are two types of authorisation that can be requested:
 - `always`: Requests the user’s permission to use location services regardless of whether the app is in use;
 - `whenInUse`: Requests the user’s permission to use location services while the app is in use.
 
-### `OSGLOCLocationHandler`
+### `IONGLOCLocationHandler`
 
 Manages all location-related information. It's composed by the following:
 - a property that retrieves the device's at-the-moment location position. It can be `nil`  if there hasn't been a request or in case of some issue occurring while fetching it;
@@ -98,16 +98,16 @@ Manages all location-related information. It's composed by the following:
    - the location data accuracy the app wants to receive;
    - the minimum distance the device must move horizontally before an update event is generated. The distance is measured in meters (m). 
 
-`OSGLOCLocationHandler` serves has the base for both `OSGLOCSingleLocationHandler` and `OSGLOCMonitorLocationHandler`. More on both later.
+`IONGLOCLocationHandler` serves has the base for both `IONGLOCSingleLocationHandler` and `IONGLOCMonitorLocationHandler`. More on both later.
 
 #### Current Location Property
 
 ```swift
-var currentLocation: OSGLOCPositionModel?
+var currentLocation: IONGLOCPositionModel?
 ```
 
 It returns the device's latest fetched location position. It can be `nil` if there hasn't been a request or in case of some issue occuring while fetching it. 
-`OSGLOCPositionModel` is composed by the following properties:
+`IONGLOCPositionModel` is composed by the following properties:
 - `altitude`: Altitude above mean sea level, measured in meters (m);
 - `course`: Direction in which the device is travelling, measured in degrees (º) and relative to due north;
 - `horizontalAccuracy`: Radius of uncertainty, measured in meters (m);
@@ -120,7 +120,7 @@ It returns the device's latest fetched location position. It can be `nil` if the
 #### Current Location Publisher
 
 ```swift
-var currentLocationPublisher: AnyPublisher<OSGLOCPositionModel, OSGLOCLocationError>
+var currentLocationPublisher: AnyPublisher<IONGLOCPositionModel, IONGLOCLocationError>
 ```
 
 It returns a publisher that delivers all location updates to whoever subscribes to it. The `currentLocation` values are the elements that can be emitted by `currentLocationPublisher`.
@@ -128,14 +128,14 @@ It returns a publisher that delivers all location updates to whoever subscribes 
 #### Update the Location Manager's Configuration
 
 ```swift
-func updateConfiguration(_ configuration: OSGLOCConfigurationModel)
+func updateConfiguration(_ configuration: IONGLOCConfigurationModel)
 ```
 
 Updates two properties that condition how location update events are generated:
 - `enableHighAccuracy`: Boolean value that indicates if the app wants location data accuracy to be at its best or not. It needs to be explicitly mentioned by the method callers
 - `minimumUpdateDistanceInMeters`: Minimum distance the device must move horizontally before an update event is generated, measured in meters (m). As it's optional, it can be omitted by the method callers.
 
-### `OSGLOCSingleLocationHandler`
+### `IONGLOCSingleLocationHandler`
 
 It's responsible to trigger one-time deliveries of the device's current location. It's composed by the following:
 - a method that requests the user's current location position. 
@@ -149,7 +149,7 @@ func requestSingleLocation()
 The method returns immediately. By calling it, it triggers an update to `currentLocation` and a new element delivery by `currentLocationPublisher`.
 
 
-### `OSGLOCMonitorLocationHandler`
+### `IONGLOCMonitorLocationHandler`
 
 It's responsible for the continuous generation of updates that report the device's current location position. It's composed by the following:
 - a method that starts the generation of updates;
@@ -173,10 +173,10 @@ The method should be called whenever you no longer need to received location-rel
 
 ## Error Handling
 
-The library uses `OSGLOCLocationError` for error handling regarding location position updates. Possible errors include:
+The library uses `IONGLOCLocationError` for error handling regarding location position updates. Possible errors include:
 
 ```swift
-enum OSGLOCLocationError: Error {
+enum IONGLOCLocationError: Error {
     case locationUnavailable
     case other(_ error: Error)
 }
@@ -184,7 +184,7 @@ enum OSGLOCLocationError: Error {
 
 ## Location Data Format
 
-Location updates are delivered as `OSGLOCPositionModel` objects:
+Location updates are delivered as `IONGLOCPositionModel` objects:
 
 ```json
 {
@@ -245,8 +245,8 @@ Common issues and solutions:
 
 ## License
 
-`OSGeolocationLib` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+`IONGeolocationLib` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
 ## Support
 
-- Report issues on our [Issue Tracker](https://github.com/ionic-team/OSGeolocationLib-iOS/issues)
+- Report issues on our [Issue Tracker](https://github.com/ionic-team/IONGeolocationLib-iOS/issues)

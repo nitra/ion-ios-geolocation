@@ -1,6 +1,6 @@
 import CoreLocation
 
-public enum OSGLOCAuthorisationRequestType {
+public enum IONGLOCAuthorisationRequestType {
     case whenInUse
     case always
 

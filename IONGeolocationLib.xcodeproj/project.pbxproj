@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		752B49212D11B262002EA65D /* OSGLOCManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49202D11B262002EA65D /* OSGLOCManagerWrapper.swift */; };
-		752B49232D11D421002EA65D /* OSGLOCAuthorisationRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49222D11D421002EA65D /* OSGLOCAuthorisationRequestType.swift */; };
-		752B49262D11D440002EA65D /* OSGLOCAuthorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49252D11D440002EA65D /* OSGLOCAuthorisation.swift */; };
-		752B49282D11D46D002EA65D /* OSGLOCPositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49272D11D46D002EA65D /* OSGLOCPositionModel.swift */; };
-		752B492B2D11DCC6002EA65D /* OSGLOCManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B492A2D11DCC6002EA65D /* OSGLOCManagerProtocols.swift */; };
-		7575CF6A2BFCEE6F008F3FD0 /* OSGeolocationLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7575CF612BFCEE6F008F3FD0 /* OSGeolocationLib.framework */; };
-		7575CF802BFCEEEA008F3FD0 /* OSGLOCManagerWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575CF7D2BFCEEEA008F3FD0 /* OSGLOCManagerWrapperTests.swift */; };
+		752B49212D11B262002EA65D /* IONGLOCManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49202D11B262002EA65D /* IONGLOCManagerWrapper.swift */; };
+		752B49232D11D421002EA65D /* IONGLOCAuthorisationRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49222D11D421002EA65D /* IONGLOCAuthorisationRequestType.swift */; };
+		752B49262D11D440002EA65D /* IONGLOCAuthorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49252D11D440002EA65D /* IONGLOCAuthorisation.swift */; };
+		752B49282D11D46D002EA65D /* IONGLOCPositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B49272D11D46D002EA65D /* IONGLOCPositionModel.swift */; };
+		752B492B2D11DCC6002EA65D /* IONGLOCManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B492A2D11DCC6002EA65D /* IONGLOCManagerProtocols.swift */; };
+		7575CF6A2BFCEE6F008F3FD0 /* IONGeolocationLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7575CF612BFCEE6F008F3FD0 /* IONGeolocationLib.framework */; };
+		7575CF802BFCEEEA008F3FD0 /* IONGLOCManagerWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575CF7D2BFCEEEA008F3FD0 /* IONGLOCManagerWrapperTests.swift */; };
 		75E8BAA12D12D5AB00ED4467 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8BAA02D12D5AB00ED4467 /* MockCLLocationManager.swift */; };
 		75E8BAA32D12F87D00ED4467 /* MockServicesChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8BAA22D12F87300ED4467 /* MockServicesChecker.swift */; };
 /* End PBXBuildFile section */
@@ -29,14 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		752B49202D11B262002EA65D /* OSGLOCManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSGLOCManagerWrapper.swift; sourceTree = "<group>"; };
-		752B49222D11D421002EA65D /* OSGLOCAuthorisationRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSGLOCAuthorisationRequestType.swift; sourceTree = "<group>"; };
-		752B49252D11D440002EA65D /* OSGLOCAuthorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSGLOCAuthorisation.swift; sourceTree = "<group>"; };
-		752B49272D11D46D002EA65D /* OSGLOCPositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSGLOCPositionModel.swift; sourceTree = "<group>"; };
-		752B492A2D11DCC6002EA65D /* OSGLOCManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSGLOCManagerProtocols.swift; sourceTree = "<group>"; };
-		7575CF612BFCEE6F008F3FD0 /* OSGeolocationLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSGeolocationLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7575CF692BFCEE6F008F3FD0 /* OSGeolocationLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OSGeolocationLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7575CF7D2BFCEEEA008F3FD0 /* OSGLOCManagerWrapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSGLOCManagerWrapperTests.swift; sourceTree = "<group>"; };
+		752B49202D11B262002EA65D /* IONGLOCManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONGLOCManagerWrapper.swift; sourceTree = "<group>"; };
+		752B49222D11D421002EA65D /* IONGLOCAuthorisationRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONGLOCAuthorisationRequestType.swift; sourceTree = "<group>"; };
+		752B49252D11D440002EA65D /* IONGLOCAuthorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONGLOCAuthorisation.swift; sourceTree = "<group>"; };
+		752B49272D11D46D002EA65D /* IONGLOCPositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONGLOCPositionModel.swift; sourceTree = "<group>"; };
+		752B492A2D11DCC6002EA65D /* IONGLOCManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IONGLOCManagerProtocols.swift; sourceTree = "<group>"; };
+		7575CF612BFCEE6F008F3FD0 /* IONGeolocationLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IONGeolocationLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7575CF692BFCEE6F008F3FD0 /* IONGeolocationLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IONGeolocationLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7575CF7D2BFCEEEA008F3FD0 /* IONGLOCManagerWrapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IONGLOCManagerWrapperTests.swift; sourceTree = "<group>"; };
 		75E8BAA02D12D5AB00ED4467 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
 		75E8BAA22D12F87300ED4467 /* MockServicesChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServicesChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7575CF6A2BFCEE6F008F3FD0 /* OSGeolocationLib.framework in Frameworks */,
+				7575CF6A2BFCEE6F008F3FD0 /* IONGeolocationLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +63,8 @@
 		752B492C2D11DFDD002EA65D /* Publishers */ = {
 			isa = PBXGroup;
 			children = (
-				752B49202D11B262002EA65D /* OSGLOCManagerWrapper.swift */,
-				752B492A2D11DCC6002EA65D /* OSGLOCManagerProtocols.swift */,
+				752B49202D11B262002EA65D /* IONGLOCManagerWrapper.swift */,
+				752B492A2D11DCC6002EA65D /* IONGLOCManagerProtocols.swift */,
 			);
 			path = Publishers;
 			sourceTree = "<group>";
@@ -72,8 +72,8 @@
 		7575CF572BFCEE6F008F3FD0 = {
 			isa = PBXGroup;
 			children = (
-				7575CF632BFCEE6F008F3FD0 /* OSGeolocationLib */,
-				7575CF6D2BFCEE6F008F3FD0 /* OSGeolocationLibTests */,
+				7575CF632BFCEE6F008F3FD0 /* IONGeolocationLib */,
+				7575CF6D2BFCEE6F008F3FD0 /* IONGeolocationLibTests */,
 				7575CF622BFCEE6F008F3FD0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,31 +81,31 @@
 		7575CF622BFCEE6F008F3FD0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7575CF612BFCEE6F008F3FD0 /* OSGeolocationLib.framework */,
-				7575CF692BFCEE6F008F3FD0 /* OSGeolocationLibTests.xctest */,
+				7575CF612BFCEE6F008F3FD0 /* IONGeolocationLib.framework */,
+				7575CF692BFCEE6F008F3FD0 /* IONGeolocationLibTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7575CF632BFCEE6F008F3FD0 /* OSGeolocationLib */ = {
+		7575CF632BFCEE6F008F3FD0 /* IONGeolocationLib */ = {
 			isa = PBXGroup;
 			children = (
 				752B492C2D11DFDD002EA65D /* Publishers */,
-				752B49252D11D440002EA65D /* OSGLOCAuthorisation.swift */,
-				752B49222D11D421002EA65D /* OSGLOCAuthorisationRequestType.swift */,
-				752B49272D11D46D002EA65D /* OSGLOCPositionModel.swift */,
+				752B49252D11D440002EA65D /* IONGLOCAuthorisation.swift */,
+				752B49222D11D421002EA65D /* IONGLOCAuthorisationRequestType.swift */,
+				752B49272D11D46D002EA65D /* IONGLOCPositionModel.swift */,
 			);
-			path = OSGeolocationLib;
+			path = IONGeolocationLib;
 			sourceTree = "<group>";
 		};
-		7575CF6D2BFCEE6F008F3FD0 /* OSGeolocationLibTests */ = {
+		7575CF6D2BFCEE6F008F3FD0 /* IONGeolocationLibTests */ = {
 			isa = PBXGroup;
 			children = (
 				75E8BAA02D12D5AB00ED4467 /* MockCLLocationManager.swift */,
 				75E8BAA22D12F87300ED4467 /* MockServicesChecker.swift */,
-				7575CF7D2BFCEEEA008F3FD0 /* OSGLOCManagerWrapperTests.swift */,
+				7575CF7D2BFCEEEA008F3FD0 /* IONGLOCManagerWrapperTests.swift */,
 			);
-			path = OSGeolocationLibTests;
+			path = IONGeolocationLibTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,9 +121,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7575CF602BFCEE6F008F3FD0 /* OSGeolocationLib */ = {
+		7575CF602BFCEE6F008F3FD0 /* IONGeolocationLib */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7575CF732BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "OSGeolocationLib" */;
+			buildConfigurationList = 7575CF732BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "IONGeolocationLib" */;
 			buildPhases = (
 				7575CF5C2BFCEE6F008F3FD0 /* Headers */,
 				7575CF5D2BFCEE6F008F3FD0 /* Sources */,
@@ -135,14 +135,14 @@
 			);
 			dependencies = (
 			);
-			name = OSGeolocationLib;
+			name = IONGeolocationLib;
 			productName = GeolocationLib;
-			productReference = 7575CF612BFCEE6F008F3FD0 /* OSGeolocationLib.framework */;
+			productReference = 7575CF612BFCEE6F008F3FD0 /* IONGeolocationLib.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7575CF682BFCEE6F008F3FD0 /* OSGeolocationLibTests */ = {
+		7575CF682BFCEE6F008F3FD0 /* IONGeolocationLibTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7575CF762BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "OSGeolocationLibTests" */;
+			buildConfigurationList = 7575CF762BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "IONGeolocationLibTests" */;
 			buildPhases = (
 				7575CF652BFCEE6F008F3FD0 /* Sources */,
 				7575CF662BFCEE6F008F3FD0 /* Frameworks */,
@@ -153,9 +153,9 @@
 			dependencies = (
 				7575CF6C2BFCEE6F008F3FD0 /* PBXTargetDependency */,
 			);
-			name = OSGeolocationLibTests;
+			name = IONGeolocationLibTests;
 			productName = GeolocationLibTests;
-			productReference = 7575CF692BFCEE6F008F3FD0 /* OSGeolocationLibTests.xctest */;
+			productReference = 7575CF692BFCEE6F008F3FD0 /* IONGeolocationLibTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +178,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7575CF5B2BFCEE6F008F3FD0 /* Build configuration list for PBXProject "OSGeolocationLib" */;
+			buildConfigurationList = 7575CF5B2BFCEE6F008F3FD0 /* Build configuration list for PBXProject "IONGeolocationLib" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -194,8 +194,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7575CF602BFCEE6F008F3FD0 /* OSGeolocationLib */,
-				7575CF682BFCEE6F008F3FD0 /* OSGeolocationLibTests */,
+				7575CF602BFCEE6F008F3FD0 /* IONGeolocationLib */,
+				7575CF682BFCEE6F008F3FD0 /* IONGeolocationLibTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,11 +243,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				752B49262D11D440002EA65D /* OSGLOCAuthorisation.swift in Sources */,
-				752B49282D11D46D002EA65D /* OSGLOCPositionModel.swift in Sources */,
-				752B49232D11D421002EA65D /* OSGLOCAuthorisationRequestType.swift in Sources */,
-				752B49212D11B262002EA65D /* OSGLOCManagerWrapper.swift in Sources */,
-				752B492B2D11DCC6002EA65D /* OSGLOCManagerProtocols.swift in Sources */,
+				752B49262D11D440002EA65D /* IONGLOCAuthorisation.swift in Sources */,
+				752B49282D11D46D002EA65D /* IONGLOCPositionModel.swift in Sources */,
+				752B49232D11D421002EA65D /* IONGLOCAuthorisationRequestType.swift in Sources */,
+				752B49212D11B262002EA65D /* IONGLOCManagerWrapper.swift in Sources */,
+				752B492B2D11DCC6002EA65D /* IONGLOCManagerProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7575CF802BFCEEEA008F3FD0 /* OSGLOCManagerWrapperTests.swift in Sources */,
+				7575CF802BFCEEEA008F3FD0 /* IONGLOCManagerWrapperTests.swift in Sources */,
 				75E8BAA12D12D5AB00ED4467 /* MockCLLocationManager.swift in Sources */,
 				75E8BAA32D12F87D00ED4467 /* MockServicesChecker.swift in Sources */,
 			);
@@ -266,7 +266,7 @@
 /* Begin PBXTargetDependency section */
 		7575CF6C2BFCEE6F008F3FD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7575CF602BFCEE6F008F3FD0 /* OSGeolocationLib */;
+			target = 7575CF602BFCEE6F008F3FD0 /* IONGeolocationLib */;
 			targetProxy = 7575CF6B2BFCEE6F008F3FD0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -426,7 +426,7 @@
 				MARKETING_VERSION = 0.0.1;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.outsystems.rd.geolocation.GeolocationLib;
+				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.libs.geolocation.GeolocationLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -461,7 +461,7 @@
 				MARKETING_VERSION = 0.0.1;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.outsystems.rd.geolocation.GeolocationLib;
+				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.libs.geolocation.GeolocationLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -479,7 +479,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.outsystems.rd.geolocation.GeolocationLibTests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.libs.geolocation.GeolocationLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -500,7 +500,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.outsystems.rd.geolocation.GeolocationLibTests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.libs.geolocation.GeolocationLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -514,7 +514,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7575CF5B2BFCEE6F008F3FD0 /* Build configuration list for PBXProject "OSGeolocationLib" */ = {
+		7575CF5B2BFCEE6F008F3FD0 /* Build configuration list for PBXProject "IONGeolocationLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7575CF712BFCEE6F008F3FD0 /* Debug */,
@@ -523,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7575CF732BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "OSGeolocationLib" */ = {
+		7575CF732BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "IONGeolocationLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7575CF742BFCEE6F008F3FD0 /* Debug */,
@@ -532,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7575CF762BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "OSGeolocationLibTests" */ = {
+		7575CF762BFCEE6F008F3FD0 /* Build configuration list for PBXNativeTarget "IONGeolocationLibTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7575CF772BFCEE6F008F3FD0 /* Debug */,
