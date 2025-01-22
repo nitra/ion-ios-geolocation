@@ -1,9 +1,9 @@
 import Combine
 import CoreLocation
 
-public typealias OSGLOCService = OSGLOCServicesChecker & OSGLOCAuthorisationHandler & OSGLOCSingleLocationHandler & OSGLOCMonitorLocationHandler
+public typealias IONGLOCService = IONGLOCServicesChecker & IONGLOCAuthorisationHandler & IONGLOCSingleLocationHandler & IONGLOCMonitorLocationHandler
 
-public struct OSGLOCServicesValidator: OSGLOCServicesChecker {
+public struct IONGLOCServicesValidator: IONGLOCServicesChecker {
     public init() {}
 
     public func areLocationServicesEnabled() -> Bool {
@@ -11,26 +11,26 @@ public struct OSGLOCServicesValidator: OSGLOCServicesChecker {
     }
 }
 
-public class OSGLOCManagerWrapper: NSObject, OSGLOCService {
-    @Published public var authorisationStatus: OSGLOCAuthorisation
-    public var authorisationStatusPublisher: Published<OSGLOCAuthorisation>.Publisher { $authorisationStatus }
+public class IONGLOCManagerWrapper: NSObject, IONGLOCService {
+    @Published public var authorisationStatus: IONGLOCAuthorisation
+    public var authorisationStatusPublisher: Published<IONGLOCAuthorisation>.Publisher { $authorisationStatus }
 
-    @Published public var currentLocation: OSGLOCPositionModel?
-    public var currentLocationPublisher: AnyPublisher<OSGLOCPositionModel, OSGLOCLocationError> {
+    @Published public var currentLocation: IONGLOCPositionModel?
+    public var currentLocationPublisher: AnyPublisher<IONGLOCPositionModel, IONGLOCLocationError> {
         $currentLocation
             .dropFirst()    // ignore the first value as it's the one set on the constructor.
             .tryMap { location in
-                guard let location else { throw OSGLOCLocationError.locationUnavailable }
+                guard let location else { throw IONGLOCLocationError.locationUnavailable }
                 return location
             }
-            .mapError { $0 as? OSGLOCLocationError ?? .other($0) }
+            .mapError { $0 as? IONGLOCLocationError ?? .other($0) }
             .eraseToAnyPublisher()
     }
 
     private let locationManager: CLLocationManager
-    private let servicesChecker: OSGLOCServicesChecker
+    private let servicesChecker: IONGLOCServicesChecker
 
-    public init(locationManager: CLLocationManager = .init(), servicesChecker: OSGLOCServicesChecker = OSGLOCServicesValidator()) {
+    public init(locationManager: CLLocationManager = .init(), servicesChecker: IONGLOCServicesChecker = IONGLOCServicesValidator()) {
         self.locationManager = locationManager
         self.servicesChecker = servicesChecker
         self.authorisationStatus = locationManager.currentAuthorisationValue
@@ -39,7 +39,7 @@ public class OSGLOCManagerWrapper: NSObject, OSGLOCService {
         locationManager.delegate = self
     }
 
-    public func requestAuthorisation(withType authorisationType: OSGLOCAuthorisationRequestType) {
+    public func requestAuthorisation(withType authorisationType: IONGLOCAuthorisationRequestType) {
         authorisationType.requestAuthorization(using: locationManager)
     }
 
@@ -55,7 +55,7 @@ public class OSGLOCManagerWrapper: NSObject, OSGLOCService {
         locationManager.requestLocation()
     }
 
-    public func updateConfiguration(_ configuration: OSGLOCConfigurationModel) {
+    public func updateConfiguration(_ configuration: IONGLOCConfigurationModel) {
         locationManager.desiredAccuracy = configuration.enableHighAccuracy ? kCLLocationAccuracyBest : kCLLocationAccuracyThreeKilometers
         configuration.minimumUpdateDistanceInMeters.map {
             locationManager.distanceFilter = $0
@@ -67,7 +67,7 @@ public class OSGLOCManagerWrapper: NSObject, OSGLOCService {
     }
 }
 
-extension OSGLOCManagerWrapper: CLLocationManagerDelegate {
+extension IONGLOCManagerWrapper: CLLocationManagerDelegate {
     public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorisationStatus = manager.currentAuthorisationValue
     }
@@ -77,7 +77,7 @@ extension OSGLOCManagerWrapper: CLLocationManagerDelegate {
             currentLocation = nil
             return
         }
-        currentLocation = OSGLOCPositionModel.create(from: latestLocation)
+        currentLocation = IONGLOCPositionModel.create(from: latestLocation)
     }
 
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {

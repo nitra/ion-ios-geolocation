@@ -6,7 +6,7 @@ require 'bundler'
 level = ARGV[0]
 
 # Define the path to your .podspec file
-podspec_path = "./OSGeolocationLib.podspec"
+podspec_path = "./IONGeolocationLib.podspec"
 
 # Read the .podspec file
 podspec_content = File.read(podspec_path)
@@ -48,7 +48,7 @@ new_podspec_content = podspec_content.gsub(/(spec.version\s*=\s*["'])\d+\.\d+\.\
 File.write(podspec_path, new_podspec_content)
 
 # Set the application name
-LIBRARY_NAME = "OSGeolocationLib"
+LIBRARY_NAME = "IONGeolocationLib"
 
 # Set the Xcode project file path
 project_file = "#{LIBRARY_NAME}.xcodeproj/project.pbxproj"
@@ -71,7 +71,7 @@ File.open(project_file, "w") { |file| file.puts updated_content }
 
 readme_path = "./README.md"
 readme_content = File.read(readme_path)
-new_readme_content = readme_content.gsub(/(pod 'OSGeolocationLib', '~> )\d+\.\d+\.\d+/, "\\1#{new_version_number}\\2")
+new_readme_content = readme_content.gsub(/(pod 'IONGeolocationLib', '~> )\d+\.\d+\.\d+/, "\\1#{new_version_number}\\2")
                                    .gsub(/(# Use the latest )\d+\.\d+/, "\\1#{[major, minor].join('.')}\\2")
 File.write(readme_path, new_readme_content)
 

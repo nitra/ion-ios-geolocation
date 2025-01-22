@@ -1,6 +1,6 @@
 import CoreLocation
 
-public enum OSGLOCAuthorisation {
+public enum IONGLOCAuthorisation {
     case notDetermined
     case restricted
     case denied
@@ -20,7 +20,7 @@ public enum OSGLOCAuthorisation {
 }
 
 extension CLLocationManager {
-    var currentAuthorisationValue: OSGLOCAuthorisation {
+    var currentAuthorisationValue: IONGLOCAuthorisation {
         .init(from: authorizationStatus)
     }
 }

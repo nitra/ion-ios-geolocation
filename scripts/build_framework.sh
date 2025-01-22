@@ -1,6 +1,6 @@
 BUILD_FOLDER="build"
-BUILD_SCHEME="OSGeolocationLib"
-FRAMEWORK_NAME="OSGeolocationLib"
+BUILD_SCHEME="IONGeolocationLib"
+FRAMEWORK_NAME="IONGeolocationLib"
 SIMULATOR_ARCHIVE_PATH="${BUILD_FOLDER}/iphonesimulator.xcarchive"
 IOS_DEVICE_ARCHIVE_PATH="${BUILD_FOLDER}/iphoneos.xcarchive"
 
