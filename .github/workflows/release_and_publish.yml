@@ -20,7 +20,7 @@ jobs:
 
     - name: Get new version
       id: version
-      run: echo "VERSION=$(ruby -e 'puts File.read("./OSGeolocationLib.podspec").match(/spec.version.*=.*''(\d+\.\d+\.\d+)''/)[1]')" >> $GITHUB_ENV
+      run: echo "VERSION=$(ruby -e 'puts File.read("./IONGeolocationLib.podspec").match(/spec.version.*=.*''(\d+\.\d+\.\d+)''/)[1]')" >> $GITHUB_ENV
 
     - name: Extract release notes
       run: sh scripts/extract_release_notes.sh "${{ env.VERSION }}" >> release_notes.md
@@ -50,14 +50,14 @@ jobs:
         gh release create "$TAG_NAME" \
           --title "$TAG_NAME" \
           --notes "$RELEASE_NOTES" \
-          "OSGeolocationLib.zip"
+          "IONGeolocationLib.zip"
 
         echo "Release created for tag: $TAG_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Deploy to Cocoapods
-      run: pod trunk push ./OSGeolocationLib.podspec --allow-warnings
+      run: pod trunk push ./IONGeolocationLib.podspec --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 

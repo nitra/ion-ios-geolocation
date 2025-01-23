@@ -40,7 +40,7 @@ jobs:
 
       - name: Get new version
         id: version
-        run: echo "VERSION=$(ruby -e 'puts File.read("./OSGeolocationLib.podspec").match(/spec.version.*=.*''(\d+\.\d+\.\d+)''/)[1]')" >> $GITHUB_ENV
+        run: echo "VERSION=$(ruby -e 'puts File.read("./IONGeolocationLib.podspec").match(/spec.version.*=.*''(\d+\.\d+\.\d+)''/)[1]')" >> $GITHUB_ENV
 
       - name: Create new branch
         run: |
@@ -48,12 +48,12 @@ jobs:
 
       - name: Move zip file to root and push changes
         run: |
-          if [ -f OSGeolocationLib.zip ]; then
-            rm OSGeolocationLib.zip
+          if [ -f IONGeolocationLib.zip ]; then
+            rm IONGeolocationLib.zip
           else
             echo "File does not exist."
           fi
-          mv build/OSGeolocationLib.zip .
+          mv build/IONGeolocationLib.zip .
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
@@ -63,7 +63,7 @@ jobs:
       - name: Create pull request
         id: create_pr
         run: |
-          gh pr create -B main -H prepare-new-release-${{ env.VERSION }} --title 'Prepare `main` to Release `${{ env.VERSION }}`' --body 'Bumps version to `${{ env.VERSION }}`.<br/>Creates an updated and ready-to-be-released `OSGeolocationLib.zip`.'
+          gh pr create -B main -H prepare-new-release-${{ env.VERSION }} --title 'Prepare `main` to Release `${{ env.VERSION }}`' --body 'Bumps version to `${{ env.VERSION }}`.<br/>Creates an updated and ready-to-be-released `IONGeolocationLib.zip`.'
           PR_NUMBER=$(gh pr view --json number --jq '.number')
           echo "PR_NUMBER=${PR_NUMBER}" >> $GITHUB_ENV
         env:
