@@ -1,4 +1,4 @@
-# IONGeolocationLib
+# ion-ios-geolocation
 
 A Swift library for iOS that provides simple, reliable access to device GPS capabilities. Get location data, monitor position changes, and manage location services with a clean, modern API.
 
@@ -16,7 +16,7 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 
 ### CocoaPods
 
-`IONGeolocationLib` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
+`ion-ios-geolocation` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
 
 ```ruby
 pod 'IONGeolocationLib', '~> 0.0.1'  # Use the latest 0.0.x version
@@ -245,8 +245,8 @@ Common issues and solutions:
 
 ## License
 
-`IONGeolocationLib` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+`ion-ios-geolocation` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
 ## Support
 
-- Report issues on our [Issue Tracker](https://github.com/ionic-team/IONGeolocationLib-iOS/issues)
+- Report issues on our [Issue Tracker](https://github.com/ionic-team/ion-ios-geolocation/issues)
