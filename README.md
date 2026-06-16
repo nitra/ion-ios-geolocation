@@ -19,7 +19,7 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 `ion-ios-geolocation` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
 
 ```ruby
-pod 'IONGeolocationLib', '~> 1.0.0'  # Use the latest 1.0.x version
+pod 'IONGeolocationLib', '~> 2.1.1'
 ```
 
 ## Quick Start
@@ -33,6 +33,7 @@ All the library's features are split in 4 different protocols. Each are detailed
 - `IONGLOCAuthorisationHandler`
 - `IONGLOCSingleLocationHandler`
 - `IONGLOCMonitorLocationHandler`
+- `IONGLOCRequestOptionsModel`
 
 There's also the typealias `IONGLOCService` that merges all protocols together. Its concrete implementation is achieved by the `IONGLOCManagerWrapper` class.
 
@@ -116,6 +117,10 @@ It returns the device's latest fetched location position. It can be `nil` if the
 - `speed`: Instantaneous speed of the device, measured in meters per second (m/s);
 - `timestamp`:  Time at which this location was determined, measured in milliseconds (ms) elapsed since the UNIX epoch (Jan 1, 1970);
 - `verticalAccuracy`: Validity of the altitude values and their estimated uncertainty, measured in meters (m).
+- `magneticHeading`: The heading (measured in degrees) relative to magnetic north.
+- `trueHeading`: The heading (measured in degrees) relative to true north.
+- `headingAccuracy`: The maximum deviation (measured in degrees) between the reported heading and the true geomagnetic heading.
+
 
 #### Current Location Publisher
 
@@ -124,6 +129,15 @@ var currentLocationPublisher: AnyPublisher<IONGLOCPositionModel, IONGLOCLocation
 ```
 
 It returns a publisher that delivers all location updates to whoever subscribes to it. The `currentLocation` values are the elements that can be emitted by `currentLocationPublisher`.
+
+#### Location Timeout Publisher
+
+```swift
+var locationTimeoutPublisher: AnyPublisher<IONGLOCLocationError, Never>
+```
+
+It returns a publisher that emits a `.timeout` event when a request exceeds the specified timeout in `IONGLOCRequestOptionsModel`.
+
 
 #### Update the Location Manager's Configuration
 
@@ -135,6 +149,22 @@ Updates two properties that condition how location update events are generated:
 - `enableHighAccuracy`: Boolean value that indicates if the app wants location data accuracy to be at its best or not. It needs to be explicitly mentioned by the method callers
 - `minimumUpdateDistanceInMeters`: Minimum distance the device must move horizontally before an update event is generated, measured in meters (m). As it's optional, it can be omitted by the method callers.
 
+### `IONGLOCRequestOptionsModel`
+
+Used to configure options for location requests.
+
+- `timeout`: Maximum duration (ms) to wait for a location update. Default is `5000`.  
+
+```swift
+let options = IONGLOCRequestOptionsModel(timeout: 10000)
+
+// Single location
+locationService.requestSingleLocation(options: options)
+
+// Continuous monitoring
+locationService.startMonitoringLocation(options: options)
+```
+
 ### `IONGLOCSingleLocationHandler`
 
 It's responsible to trigger one-time deliveries of the device's current location. It's composed by the following:
@@ -143,10 +173,13 @@ It's responsible to trigger one-time deliveries of the device's current location
 #### Request Device's Current Location
 
 ```swift
-func requestSingleLocation()
+func requestSingleLocation(options: IONGLOCRequestOptionsModel)
 ```
 
 The method returns immediately. By calling it, it triggers an update to `currentLocation` and a new element delivery by `currentLocationPublisher`.
+
+**Note:** The signature of `requestSingleLocation` has changed.  
+You now need to pass an `IONGLOCRequestOptionsModel` to configure options such as `timeout`.
 
 
 ### `IONGLOCMonitorLocationHandler`
@@ -158,10 +191,16 @@ It's responsible for the continuous generation of updates that report the device
 #### Start Monitoring the Device's Position
 
 ```swift
+func startMonitoringLocation(options: IONGLOCRequestOptionsModel)
+```
+- uses the provided options, e.g., a timeout.
+
+```swift
 func startMonitoringLocation()
 ```
+- uses the legacy behavior without any options.
 
-The method returns immediately. By calling it, it triggers an update to `currentLocation` and signals `currentLocationPublisher` to continuously emit relevant location updates.
+Both methods return immediately. By calling them, they trigger an update to `currentLocation` and signal `currentLocationPublisher` to continuously emit relevant location updates.
 
 #### Stop Monitoring the Device's Position
 
@@ -169,7 +208,7 @@ The method returns immediately. By calling it, it triggers an update to `current
 func stopMonitoringLocation()
 ```
 
-The method should be called whenever you no longer need to received location-related events.
+The method should be called whenever you no longer need to receive location-related events.
 
 ## Error Handling
 
@@ -178,6 +217,7 @@ The library uses `IONGLOCLocationError` for error handling regarding location po
 ```swift
 enum IONGLOCLocationError: Error {
     case locationUnavailable
+    case timeout   
     case other(_ error: Error)
 }
 ```
@@ -195,7 +235,10 @@ Location updates are delivered as `IONGLOCPositionModel` objects:
     "verticalAccuracy": 10.0,
     "course": 180.0,
     "speed": 0.0,
-    "timestamp": 1641034800000
+    "timestamp": 1641034800000,
+    "magneticHeading": 5.0,
+    "trueHeading": 5.0,
+    "headingAccuracy": 0.0
 }
 ```
 

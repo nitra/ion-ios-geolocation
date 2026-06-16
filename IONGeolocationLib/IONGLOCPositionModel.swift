@@ -10,8 +10,11 @@ public struct IONGLOCPositionModel: Equatable {
     private(set) public var timestamp: Double
     private(set) public var verticalAccuracy: Double
     private(set) public var isMock: Bool
+    private(set) public var magneticHeading: Double?
+    private(set) public var trueHeading: Double?
+    private(set) public var headingAccuracy: Double?
 
-    private init(altitude: Double, course: Double, horizontalAccuracy: Double, latitude: Double, longitude: Double, speed: Double, timestamp: Double, verticalAccuracy: Double, isMock: Bool) {
+    private init(altitude: Double, course: Double, horizontalAccuracy: Double, latitude: Double, longitude: Double, speed: Double, timestamp: Double, verticalAccuracy: Double, isMock: Bool, magneticHeading: Double?, trueHeading: Double?, headingAccuracy: Double?) {
         self.altitude = altitude
         self.course = course
         self.horizontalAccuracy = horizontalAccuracy
@@ -21,10 +24,11 @@ public struct IONGLOCPositionModel: Equatable {
         self.timestamp = timestamp
         self.verticalAccuracy = verticalAccuracy
         self.isMock = isMock
+        self.magneticHeading = magneticHeading
+        self.trueHeading = trueHeading
+        self.headingAccuracy = headingAccuracy
     }
 }
-
-
 
 public extension IONGLOCPositionModel {
 
@@ -33,10 +37,10 @@ public extension IONGLOCPositionModel {
         if #available(iOS 15.0, *) {
             let isLocationSimulated = location.sourceInformation?.isSimulatedBySoftware ?? false
             let isProducedByAccess = location.sourceInformation?.isProducedByAccessory ?? false
-                
+
             let info = CLLocationSourceInformation(softwareSimulationState: isLocationSimulated, andExternalAccessoryState: isProducedByAccess)
-                
-            if info.isSimulatedBySoftware == true || info.isProducedByAccessory == true{
+
+            if info.isSimulatedBySoftware == true || info.isProducedByAccessory == true {
                 isMock = true
             } else {
                 isMock = false
@@ -44,9 +48,19 @@ public extension IONGLOCPositionModel {
         }
         return isMock
     }
-    
-    static func create(from location: CLLocation) -> IONGLOCPositionModel {
-        .init(
+
+    static func create(from location: CLLocation, heading: CLHeading? = nil) -> IONGLOCPositionModel {
+        var mHeading: Double? = nil
+        var tHeading: Double? = nil
+        var hAccuracy: Double? = nil
+
+        if let heading = heading {
+            if heading.magneticHeading >= 0 { mHeading = heading.magneticHeading }
+            if heading.trueHeading >= 0 { tHeading = heading.trueHeading }
+            if heading.headingAccuracy >= 0 { hAccuracy = heading.headingAccuracy }
+        }
+
+        return .init(
             altitude: location.altitude,
             course: location.course,
             horizontalAccuracy: location.horizontalAccuracy,
@@ -55,7 +69,10 @@ public extension IONGLOCPositionModel {
             speed: location.speed,
             timestamp: location.timestamp.millisecondsSinceUnixEpoch,
             verticalAccuracy: location.verticalAccuracy,
-            isMock: getIsMock(from: location)
+            isMock: getIsMock(from: location),
+            magneticHeading: mHeading,
+            trueHeading: tHeading,
+            headingAccuracy: hAccuracy
         )
     }
 }

@@ -60,4 +60,12 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+build/
+
+# macOS system files
 .DS_Store
+
+# Node.js / npm
+node_modules/
+package-lock.json
