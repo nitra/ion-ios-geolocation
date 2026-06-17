@@ -117,6 +117,7 @@ It returns the device's latest fetched location position. It can be `nil` if the
 - `speed`: Instantaneous speed of the device, measured in meters per second (m/s);
 - `timestamp`:  Time at which this location was determined, measured in milliseconds (ms) elapsed since the UNIX epoch (Jan 1, 1970);
 - `verticalAccuracy`: Validity of the altitude values and their estimated uncertainty, measured in meters (m).
+- `isMock`: Indicates whether the location was simulated by software or produced by an external accessory (iOS 15+; always `false` on earlier versions).
 - `magneticHeading`: The heading (measured in degrees) relative to magnetic north.
 - `trueHeading`: The heading (measured in degrees) relative to true north.
 - `headingAccuracy`: The maximum deviation (measured in degrees) between the reported heading and the true geomagnetic heading.
@@ -236,6 +237,7 @@ Location updates are delivered as `IONGLOCPositionModel` objects:
     "course": 180.0,
     "speed": 0.0,
     "timestamp": 1641034800000,
+    "isMock": false,
     "magneticHeading": 5.0,
     "trueHeading": 5.0,
     "headingAccuracy": 0.0
@@ -292,4 +294,4 @@ Common issues and solutions:
 
 ## Support
 
-- Report issues on our [Issue Tracker](https://github.com/ionic-team/ion-ios-geolocation/issues)
+- Report issues on our [Issue Tracker](https://github.com/nitra/ion-ios-geolocation/issues)
