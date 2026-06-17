@@ -1,0 +1,21 @@
+README.md
+  s_75e5be4effc20b::t_8f6c3917794214 120
+  s_75e5be4effc20b::t_07086b05444ea6 240
+  s_75e5be4effc20b::t_01b8fe15c3961a 297
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "98997a5b4b31f89a40c9502ef0d12ef78df1fd86",
+  "prompts": {},
+  "sessions": {
+    "s_75e5be4effc20b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5b5b5efe-8128-447a-84bb-42df1c1323ee",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Yurii <brechkoio@gmail.com>"
+    }
+  }
+}
