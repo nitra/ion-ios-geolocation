@@ -8,7 +8,7 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 
 ## Requirements
 
-- iOS 14.0+
+- iOS 15.0+
 - Swift 5.0+
 - Xcode 15.0+
 
@@ -19,7 +19,7 @@ A Swift library for iOS that provides simple, reliable access to device GPS capa
 `ion-ios-geolocation` is available through [CocoaPods](https://cocoapods.org). Add this to your Podfile:
 
 ```ruby
-pod 'IONGeolocationLib', '~> 2.1.1'
+pod 'IONGeolocationLib', '~> 3.0.0'
 ```
 
 ## Quick Start

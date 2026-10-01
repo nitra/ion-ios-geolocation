@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/ionic-team/ion-ios-geolocation/compare/2.1.1...3.0.0) (2026-09-16)
+
+
+### Features
+
+* bump minimum deployment target to iOS 15 ([#21](https://github.com/ionic-team/ion-ios-geolocation/issues/21)) ([1994c57](https://github.com/ionic-team/ion-ios-geolocation/commit/1994c576c4f12d84410afb74b30cd101c2755065))
+
+
+### BREAKING CHANGES
+
+* the minimum supported iOS version is now 15.0. Apps
+with a deployment target of iOS 14 can no longer consume this library.
+
 ## [2.1.1](https://github.com/ionic-team/ion-ios-geolocation/compare/2.1.0...2.1.1) (2026-03-10)
 
 
